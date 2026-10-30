@@ -1,0 +1,17 @@
+# Built app
+ProfileUnsigner.app/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Editors
+.vscode/
+.idea/
+
+# Generated profiles
+*Unsigned.mobileconfig
