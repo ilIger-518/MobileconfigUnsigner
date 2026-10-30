@@ -1,4 +1,4 @@
-# ProfileUnsigner
+# MobileconfigUnsigner
 
 A tiny macOS droplet app that strips the signature from a signed `.mobileconfig` profile. Drag a profile onto it and an unsigned copy is created next to the original.
 
@@ -16,11 +16,11 @@ Requires macOS (uses `osacompile` and `security`, both built in).
 ./build.sh
 ```
 
-This produces `ProfileUnsigner.app` in the repository folder. Move it wherever you like, e.g. `/Applications` or the Dock.
+This produces `MobileconfigUnsigner.app` in the repository folder. Move it wherever you like, e.g. `/Applications` or the Dock.
 
 ## Usage
 
-- **Drag and drop:** drag one or more `.mobileconfig` files onto `ProfileUnsigner.app`.
+- **Drag and drop:** drag one or more `.mobileconfig` files onto `MobileconfigUnsigner.app`.
 - **Double-click:** the app opens a file picker instead.
 
 For `Foo.mobileconfig`, the output is `Foo Unsigned.mobileconfig` in the same folder. An existing file with that name is overwritten. A dialog lists the files created and any failures (for example, a profile that is not signed).
@@ -37,5 +37,5 @@ For `Foo.mobileconfig`, the output is `Foo Unsigned.mobileconfig` in the same fo
 
 ## Files
 
-- `ProfileUnsigner.applescript`: the droplet source.
-- `build.sh`: compiles the source into `ProfileUnsigner.app`.
+- `MobileconfigUnsigner.applescript`: the droplet source.
+- `build.sh`: compiles the source into `MobileconfigUnsigner.app`.

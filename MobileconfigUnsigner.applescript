@@ -33,5 +33,5 @@ on open theItems
 		set report to report & linefeed & linefeed & "Failed:" & linefeed & (errList as text)
 	end if
 	set AppleScript's text item delimiters to ""
-	display dialog report with title "Profile Unsigner" buttons {"OK"} default button "OK"
+	display dialog report with title "Mobileconfig Unsigner" buttons {"OK"} default button "OK"
 end open
