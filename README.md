@@ -1,22 +1,23 @@
 # MobileconfigUnsigner
 
-A tiny macOS droplet app that strips the signature from a signed `.mobileconfig` profile. Drag a profile onto it and an unsigned copy is created next to the original.
+A tiny macOS droplet app that strips the signature from a signed `.mobileconfig` profile and converts it to readable XML. Drag a profile onto it and an unsigned copy is created next to the original.
 
 It does exactly what this command does:
 
 ```sh
 security cms -D -i 'Profile.mobileconfig' > 'Profile Unsigned.mobileconfig'
+plutil -convert xml1 'Profile Unsigned.mobileconfig'
 ```
 
 ## Build
 
-Requires macOS (uses `osacompile` and `security`, both built in).
+Requires macOS (uses `osacompile`, `security`, and `plutil`, all built in).
 
 ```sh
 ./build.sh
 ```
 
-This produces `MobileconfigUnsigner.app` in the repository folder. Move it wherever you like, e.g. `/Applications` or the Dock.
+This produces `MobileconfigUnsigner.app` in the repository folder. Rebuild after changing the script, and replace any older copy you moved elsewhere, e.g. `/Applications` or the Dock.
 
 ## Usage
 
@@ -29,6 +30,7 @@ For `Foo.mobileconfig`, the output is `Foo Unsigned.mobileconfig` in the same fo
 
 - The first launch may require right-click → Open, since the app is not notarized.
 - The original profile is never modified.
+- Binary payload data, such as certificates, remains encoded in the XML.
 - Unsigned profiles may behave differently when installed (e.g. they can't be verified as coming from your MDM), so only use them where that's acceptable.
 
 ## License

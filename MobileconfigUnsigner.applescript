@@ -12,7 +12,7 @@ on open theItems
 		if inPath ends with ".mobileconfig" then
 			set outPath to (text 1 thru -14 of inPath) & " Unsigned.mobileconfig"
 			try
-				do shell script "/usr/bin/security cms -D -i " & quoted form of inPath & " > " & quoted form of outPath
+				do shell script "/usr/bin/security cms -D -i " & quoted form of inPath & " > " & quoted form of outPath & " && /usr/bin/plutil -convert xml1 " & quoted form of outPath
 				set end of okList to outPath
 			on error msg
 				do shell script "/bin/rm -f " & quoted form of outPath
